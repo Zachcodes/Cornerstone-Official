@@ -1,11 +1,18 @@
 const express = require('express');
 const path = require('path');
+const massive = require('massive');
+
 require('dotenv').config();
 
+//Setting up express app
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+//Massive config
 const connectionString = process.env.connectionString;
+const massiveInstance = massive.connectSync({connectionString});
+app.set('db', massiveInstance);
+const db = app.get('db');
 
 // Priority serve any static files.
 app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
