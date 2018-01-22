@@ -1,12 +1,31 @@
 const express = require('express');
 const path = require('path');
 const massive = require('massive');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const passport = require('passport');
 
 require('dotenv').config();
 
 //Setting up express app
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+//Initialize the session
+app.use(session({
+  secret: process.env.SESSIONSECRET,
+  saveUninitialized: true,
+  resave: true
+}))
+//Initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+//basic express config
+app.use(cors());
+app.use(bodyParser.json())
+
 
 //Massive config
 const connectionString = process.env.connectionString;
