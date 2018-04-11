@@ -19,6 +19,9 @@ app.use(session({
   saveUninitialized: true,
   resave: true
 }))
+
+massive(process.env.connectionString).then(dbInstance => app.set('db', dbInstance));
+
 app.use(passport.initialize());
 //Initialize passport
 // app.use(passport.initialize());
@@ -72,7 +75,6 @@ app.use(bodyParser.json())
 
 
 //Massive config
-massive(process.env.connectionString).then(dbInstance => app.set('db', dbInstance));
 const db = app.get('db');
 
 // Priority serve any static files.
