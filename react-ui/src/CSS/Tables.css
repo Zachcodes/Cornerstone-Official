@@ -1,0 +1,12 @@
+.table-container {
+  border: 1px solid black;
+}
+
+.table-header {
+  border: 1px solid black;
+}
+
+.table-data {
+
+  font-size: 18px;
+}

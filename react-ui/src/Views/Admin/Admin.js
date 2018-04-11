@@ -1,47 +1,123 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+//components
+import TableContainer from '../../Components/TableContainer.js';
+
 class Admin extends Component {
   constructor(props){
     super(props)
     this.state = {
-      username: '',
-      password: ''
+      clientsData: [],
+      clientsHeaders: [],
+      projectsData: [],
+      projectsHeaders: [],
+      ahjData: [],
+      ahjHeaders: []
     }
   }
-  componentWillMount(){
-    //TODO change this to use the session for logging in
-    axios.get('http://localhost:3200/api/adminCheck').then(function(response) {
-      if(!response.data == 'You need to login homeslice'){
-        //I'll want to send to admin login page
+
+  componentDidMount() {
+    axios.get('http://localhost:4000/api/admin/clients').then(response => {
+      //Need to loop through at this point and seperate the key names and the value names
+      var clientsData = [];
+      var clientsHeaders = [];
+      for(var i = 0; i < response.data.length; i++) {
+        var tempArr = []
+        if(i == 0){
+          for(var key in response.data[i]){
+            clientsHeaders.push(key);
+            tempArr.push(response.data[i][key])
+          }
+          clientsData.push(tempArr)
+        }
+        else {
+          for(var key in response.data[i]){
+            tempArr.push(response.data[i][key])
+          }
+          clientsData.push(tempArr)
+        }
+
+
       }
+      var detailViewButton = <button onClick={this.detailView}>Details</button>
+      clientsData.push(detailViewButton)
+      clientsHeaders.push('Detail View')
+
+      this.setState({
+        clientsData: clientsData,
+        clientsHeaders: clientsHeaders
+      })
     })
-    .catch(function(error) {
-      console.log('This is the error', error)
+    .catch(err => {
+      alert('There was a problem retrieving the client data');
     })
-  }
-  submitAuthCheck = () => {
-    console.log(this.state)
+
+    axios.get('http://localhost:4000/api/admin/projects').then(response => {
+      //Need to loop through at this point and seperate the key names and the value names
+      var projectsData = [];
+      var projectsHeaders = [];
+      for(var i = 0; i < response.data.length; i++) {
+        for(var key in response.data[i]){
+          projectsHeaders.push(key);
+          projectsData.push(response.data[i][key])
+        }
+      }
+      var detailViewButton = <button onClick={this.detailView}>Details</button>
+      projectsData.push(detailViewButton)
+      projectsHeaders.push('Detail View')
+
+      this.setState({
+        projectsData: projectsData,
+        projectsHeaders: projectsHeaders
+      })
+    })
+    .catch(err => {
+      alert('There was a problem retrieving the projects data');
+    })
+
+    axios.get('http://localhost:4000/api/admin/ahj').then(response => {
+      //Need to loop through at this point and seperate the key names and the value names
+      var ahjData = [];
+      var ahjHeaders = [];
+      for(var i = 0; i < response.data.length; i++) {
+        for(var key in response.data[i]){
+          ahjData.push(key);
+          ahjHeaders.push(response.data[i][key])
+        }
+        var detailViewButton = <button onClick={this.detailView}>Details</button>
+        ahjData.push(detailViewButton)
+        ahjHeaders.push('Detail View')
+
+
+      }
+
+      this.setState({
+        ahjData: ahjData,
+        ahjHeaders: ahjHeaders
+      })
+    })
+    .catch(err => {
+      alert('There was a problem retrieving the ahj data');
+    })
   }
 
-  handleUsernameChange = (e) => {
-    this.setState({
-      username: e.target.value
-    })
-  }
-
-  handlePasswordChange = (e) => {
-    this.setState({
-      password: e.target.value
-    })
+  detailView = (e) => {
+    console.log('I am getting clicked');
   }
 
   render() {
     return (
       <div>
-      Username:  <input type="text" name="adminUsername" onChange={this.handleUsernameChange}/>
-      Password:  <input type="password" name="adminPassword" onChange={this.handlePasswordChange}/>
-      <button onClick={this.submitAuthCheck}>Submit</button>
+        <h1>Admin View</h1>
+        <h2>
+          Clients
+          <TableContainer tableData={this.state.clientsData} tableHeaders={this.state.clientsHeaders}/>
+          Projects
+          <TableContainer tableData={this.state.projectsData} tableHeaders={this.state.projectsHeaders}/>
+          AHJ
+          <TableContainer tableData={this.state.ahjData} tableHeaders={this.state.ahjHeaders}/>
+        </h2>
       </div>
     );
   }
