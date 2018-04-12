@@ -19,7 +19,7 @@
   },
   "proxy": {
     "/socket": {
-      "target": "ws://localhost:3200",
+      "target": "ws://localhost:5000",
       "ws": true
     },
     "/config": {
