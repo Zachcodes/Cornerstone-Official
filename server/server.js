@@ -54,7 +54,9 @@ passport.use(
 
           db.create_user(userObj).then(results => {
             let user = results[0];
-            return done(null, user);
+            db.set_default_user_role({user_id: user.user_id}).then(result => {
+              return done(null, user);
+            })
           });
         }
       });
@@ -64,10 +66,12 @@ passport.use(
 );
 
 passport.serializeUser((user, done) => {
+  console.log(1)
   return done(null, user.user_id);
 });
 
 passport.deserializeUser((id, done) => {
+  console.log(2)
   const db = app.get("db");
   db.get_user_by_id({ id }).then(results => {
     let user = results[0];
@@ -76,11 +80,21 @@ passport.deserializeUser((id, done) => {
 });
 
 app.get("/auth", passport.authenticate("auth0"));
-app.get(
-  "/auth/callback",
-  passport.authenticate("auth0", {
-    successRedirect: "http://localhost:3000/#/locations",
-    failureRedirect: "http://localhost:3000/#/login"
+app.get("/auth/callback",
+  passport.authenticate("auth0", function(req, res, next) {
+    console.log(3)
+    // if(err) {
+    //   return next(err)
+    // }
+    // if(!user) {
+    //   return res.redirect('http://localhost:3000/#/login');
+    // }
+    // req.logIn(user, function(err) {
+    //   if(err) {
+    //     return next(err);
+    //   }
+    //   console.log(3)
+    // })
   })
 );
 
