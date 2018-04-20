@@ -5,7 +5,7 @@ CREATE TABLE clients (
 CREATE TABLE users (
     user_Id        serial PRIMARY KEY,
     username       varchar(40) NOT NULL,
-    password       varchar(40) NOT NULL,
+    auth_id        text,
     clients_id     integer REFERENCES clients (client_id)
 );
 CREATE TABLE roles (
