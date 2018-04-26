@@ -13,9 +13,9 @@ class Home extends Component {
       <div className="home-red-square">
         <div className="home-bottom-line"></div>
         <div className="home-left-line">
-          <button className="home-navigation-button"><Link to="/philosophy">Philosophy</Link></button>
-          <button className="home-navigation-button"><Link to="/portfolio">Portfolio</Link></button>
-          <button className="home-navigation-button"><Link to="/contact">Contact</Link></button>
+          <button className="home-navigation-button"><Link to="/philosophy" className="home-link">Philosophy</Link></button>
+          <button className="home-navigation-button"><Link to="/portfolio" className="home-link">Portfolio</Link></button>
+          <button className="home-navigation-button"><Link to="/contact" className="home-link">Contact</Link></button>
         </div>
       </div>
     );
