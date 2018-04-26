@@ -8,12 +8,15 @@ import { Link } from 'react-router-dom';
 //Components
 import Navbar from './Components/Navbar';
 
+//CSS
+import './CSS/Main.css';
+
 class App extends Component {
   render() {
     return (
       <div>
         <Navbar></Navbar>
-        {routes}
+          {routes}
       </div>
     );
   }

@@ -2,16 +2,24 @@
   display: flex;
   flex-direction: row;
   height: 75px;
-  background-color: #e2e2e2;
 }
-.navbar-left {
-  width: 50%;
-  height: 100%;
+.navbar-name-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  width: 20%;
+  box-sizing: border-box;
+  padding: 10px;
 }
-.navbar-right {
-  width: 50%;
-  height: 100%;
+.navbar-cdg {
+  margin-right: 3px;
+  font-size: 75px;
+  color: red;
+}
+.navbar-description-container {
+  display: flex;
+  flex-direction: column;
+}
+.navbar-bottom-container {
+  display: flex;
+  flex-direction: row;
 }

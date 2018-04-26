@@ -1,0 +1,35 @@
+.home-red-square {
+  height: 25px;
+  width: 25px;
+  background-color: red;
+  transform: rotate(-18deg);
+  position: relative;
+  top: 600px;
+  left: 600px;
+}
+/* .home-fade-line {
+  width:500px; height:100px;
+  border:solid 5px #000;
+  border-color:#000 transparent transparent transparent;
+  border-radius: 50%/100px 100px 0 0;
+} */
+.home-bottom-line {
+  background-color: transparent;
+  height: 100px;
+  width: 600px;
+  border-top: .5px solid black;
+  position: absolute;
+  top: 25px;
+  left: -80px;
+}
+.home-left-line {
+  background-color: transparent;
+  height: 625px;
+  width: 5px;
+  border-left: .5px solid black;
+  position: absolute;
+  top: -540px;
+}
+.home-navigation-button {
+  margin-bottom: 20px;
+}
