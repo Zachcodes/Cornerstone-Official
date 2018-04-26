@@ -1,0 +1,17 @@
+.navbar-main {
+  display: flex;
+  flex-direction: row;
+  height: 75px;
+  background-color: #e2e2e2;
+}
+.navbar-left {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar-right {
+  width: 50%;
+  height: 100%;
+}

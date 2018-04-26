@@ -38,6 +38,15 @@ module.exports = {
         res.send(err)
       }
     })
+  },
+
+  roleCheck(req, res) {
+    if(req.session.user.role == 'admin') {
+      res.status(200).send('user is admin');
+    }
+    else {
+      res.status(404).send('user not an admin');
+    }
   }
 
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 //components
 import TableContainer from '../../Components/TableContainer.js';
@@ -17,8 +18,10 @@ class Admin extends Component {
     }
   }
 
+
+
   componentDidMount() {
-    axios.get('http://localhost:4000/api/admin/clients').then(response => {
+    axios.get('/api/admin/clients').then(response => {
       //Need to loop through at this point and seperate the key names and the value names
       var clientsData = [];
       var clientsHeaders = [];
@@ -50,10 +53,10 @@ class Admin extends Component {
       })
     })
     .catch(err => {
-      alert('There was a problem retrieving the client data');
+      console.log('err', err)
     })
 
-    axios.get('http://localhost:4000/api/admin/projects').then(response => {
+    axios.get('/api/admin/projects').then(response => {
       //Need to loop through at this point and seperate the key names and the value names
       var projectsData = [];
       var projectsHeaders = [];
@@ -73,10 +76,10 @@ class Admin extends Component {
       })
     })
     .catch(err => {
-      alert('There was a problem retrieving the projects data');
+      console.log('err', err)
     })
 
-    axios.get('http://localhost:4000/api/admin/ahj').then(response => {
+    axios.get('/api/admin/ahj').then(response => {
       //Need to loop through at this point and seperate the key names and the value names
       var ahjData = [];
       var ahjHeaders = [];
@@ -98,7 +101,7 @@ class Admin extends Component {
       })
     })
     .catch(err => {
-      alert('There was a problem retrieving the ahj data');
+      console.log('err', err)
     })
   }
 

@@ -8,7 +8,9 @@ const session = require('express-session');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 const adminDbController = require('./Controllers/adminDbController.js');
-const bcrypt = require('bcryptjs');
+const roleCheck = require('./Middleware/RoleCheck.js');
+const sessionCheck = require('./Middleware/SessionCheck.js');
+// const bcrypt = require('bcryptjs');
 require('dotenv').config();
 
 //Setting up express app
@@ -26,6 +28,8 @@ app.use(session({
 }))
 
 massive(process.env.connectionString).then(dbInstance => app.set('db', dbInstance));
+
+app.use(sessionCheck);
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -66,45 +70,53 @@ passport.use(
 );
 
 passport.serializeUser((user, done) => {
-  console.log(1)
   return done(null, user.user_id);
 });
 
-passport.deserializeUser((id, done) => {
-  console.log(2)
+passport.deserializeUser((userId, done) => {
   const db = app.get("db");
-  db.get_user_by_id({ id }).then(results => {
+  db.get_user_by_id({ userId }).then(results => {
     let user = results[0];
     return done(null, user);
   });
 });
 
 app.get("/auth", passport.authenticate("auth0"));
-app.get("/auth/callback",
-  passport.authenticate("auth0", function(req, res, next) {
-    console.log(3)
-    // if(err) {
-    //   return next(err)
-    // }
-    // if(!user) {
-    //   return res.redirect('http://localhost:3000/#/login');
-    // }
-    // req.logIn(user, function(err) {
-    //   if(err) {
-    //     return next(err);
-    //   }
-    //   console.log(3)
-    // })
-  })
+
+app.get('/auth/callback',
+  passport.authenticate('auth0', { failureRedirect: '/login' }),
+  function(req, res) {
+    const db = app.get("db");
+    if (!req.user) {
+      throw new Error('user null');
+    }
+    else {
+      //determine user role
+      let userId = req.user.user_id;
+      db.get_user_role({userId}).then(results => {
+        if(results) {
+          if(results[0].role_id == 1) {
+            req.session.user.role = 'user';
+            res.redirect('http://localhost:3201/#/dashboard');
+          } else if (results[0].role_id == 2) {
+            req.session.user.role = 'admin';
+            res.redirect('http://localhost:3201/#/admin');
+          }
+        }
+      })
+    }
+  }
 );
 
 // Priority serve any static files.
 // app.use(express.static(path.resolve(__dirname, '../react-ui/src')));
-
 //Admin Db controller routes
-app.get('/api/admin/clients', adminDbController.GetAllClients);
-app.get('/api/admin/projects', adminDbController.GetAllProjects);
-app.get('/api/admin/ahj', adminDbController.GetAllAHJ);
+app.get('/api/admin/clients', roleCheck, adminDbController.GetAllClients);
+app.get('/api/admin/projects', roleCheck, adminDbController.GetAllProjects);
+app.get('/api/admin/ahj', roleCheck, adminDbController.GetAllAHJ);
+
+
+app.get('/api/roleCheck', adminDbController.roleCheck)
 
 app.listen(PORT, function () {
   console.log(`Listening on port ${PORT}`);
