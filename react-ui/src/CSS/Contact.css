@@ -1,0 +1,15 @@
+.contact-form-main {
+  height: 400px;
+  width: 400px;
+  background-color: white;
+  position: absolute;
+  transform: rotate(18deg);
+  top: -200px;
+  left: 700px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+}
+.contact-form-row {
+
+}
