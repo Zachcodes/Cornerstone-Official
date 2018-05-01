@@ -8,6 +8,7 @@ const session = require('express-session');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 const adminDbController = require('./Controllers/adminDbController.js');
+const frontEndController = require('./Controllers/frontEndController.js');
 const roleCheck = require('./Middleware/RoleCheck.js');
 const sessionCheck = require('./Middleware/SessionCheck.js');
 // const bcrypt = require('bcryptjs');
@@ -115,6 +116,8 @@ app.get('/api/admin/clients', roleCheck, adminDbController.GetAllClients);
 app.get('/api/admin/projects', roleCheck, adminDbController.GetAllProjects);
 app.get('/api/admin/ahj', roleCheck, adminDbController.GetAllAHJ);
 
+//Contact Routes
+app.post('/api/contact', frontEndController.postMessage);
 
 app.get('/api/roleCheck', adminDbController.roleCheck)
 
