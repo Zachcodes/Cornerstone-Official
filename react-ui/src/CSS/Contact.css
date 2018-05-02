@@ -13,3 +13,9 @@
 .contact-form-row {
 
 }
+.contact-form-hidden-element {
+  display: none;
+}
+.contact-form-visible-element {
+  display: inline-block;
+}
