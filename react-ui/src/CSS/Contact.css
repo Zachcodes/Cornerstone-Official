@@ -19,3 +19,15 @@
 .contact-form-visible-element {
   display: inline-block;
 }
+.contact-left-container {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  transform: rotate(17deg);
+  position: absolute;
+  bottom: 100px;
+  right: 250px;
+}
+.contact-left-row {
+  height: 30%;
+}

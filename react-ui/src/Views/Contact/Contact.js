@@ -110,6 +110,11 @@ class Contact extends Component {
     var { name, email, subject, message, requestCallback, phone, timeToCall} = this.state;
     return (
       <div className="home-red-square">
+        <div className="contact-left-container">
+          <div className="contact-left-row"><p>Address: some address</p></div>
+          <div className="contact-left-row"><p>Phone: some phone</p></div>
+          <div className="contact-left-row"><p>Email: some email</p></div>
+        </div>
         <div className="home-bottom-line"></div>
         <div className="home-left-line">
           <button className="home-navigation-button"><Link to="/philosophy" className="home-link">Philosophy</Link></button>
