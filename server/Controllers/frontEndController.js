@@ -34,6 +34,34 @@ module.exports = {
        else
          res.status(200).send('Success');
     });
+  },
+
+  getImages(req, res, next) {
+
+    var fs = require('fs');
+    const type = req.params.type;
+    var path = `./Images/${type}`;
+
+    if(fs.existsSync(path)) {
+
+      fs.readdir(path, function(err, filenames) {
+        if (err) {
+          onError(err);
+          return;
+        }
+        var imagePaths = [];
+
+        filenames.forEach(function(filename) {
+          var filePath = `/Images/${type}/${filename}`;
+          imagePaths.push(filePath);
+        });
+        res.status(200).send(imagePaths);
+      });
+
+    }
+    else {
+      res.send('No Images');
+    }
   }
 
 }

@@ -119,6 +119,9 @@ app.get('/api/admin/ahj', roleCheck, adminDbController.GetAllAHJ);
 //Contact Routes
 app.post('/api/contact', frontEndController.postMessage);
 
+//Portfolio routes
+app.get('/api/portfolio/:type', frontEndController.getImages);
+
 app.get('/api/roleCheck', adminDbController.roleCheck)
 
 app.listen(PORT, function () {

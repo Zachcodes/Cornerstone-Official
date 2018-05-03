@@ -11,6 +11,11 @@ import Navbar from './Components/Navbar';
 //CSS
 import './CSS/Main.css';
 
+//modal
+import Modal from 'react-modal';
+
+Modal.setAppElement('#root');
+
 class App extends Component {
   render() {
     return (
