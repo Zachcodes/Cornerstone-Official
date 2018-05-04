@@ -22,10 +22,19 @@
   flex-direction: column;
 }
 .portfolio-modal-navigation {
-
+  margin-bottom: 25px;
+}
+.portfolio-modal-navigation-button {
+  margin-right:5px;
+  font-size: 20px;
+}
+.portfolio-modal-navigation-active {
+  color: red;
 }
 .portfolio-modal-project-container {
-
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .portfolio-modal-close-div {
 
@@ -34,7 +43,7 @@
   display: flex;
   flex-direction: column;
   height: 200px;
-  width: 150px;
+  width: 33%;
 }
 .portfolio-collapsed-image {
   height: 80%;

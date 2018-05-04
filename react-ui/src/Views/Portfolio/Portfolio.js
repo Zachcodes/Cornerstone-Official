@@ -55,12 +55,59 @@ class Portfolio extends Component {
       }
     })
   }
-  afterOpenModal = () => {
 
+  afterOpenModal = () => {
+    var commercialSpan = this.commercialSpan.current;
+    var residentialSpan = this.residentialSpan.current;
+    var institutionalSpan = this.institutionalSpan.current;
+    if(this.state.type === 'Commercial') {
+      commercialSpan.classList.add('portfolio-modal-navigation-active')
+
+      //in case others are active
+      residentialSpan.classList.remove('portfolio-modal-navigation-active')
+      institutionalSpan.classList.remove('portfolio-modal-navigation-active')
+    }
+    else if(this.state.type === 'Residential') {
+      residentialSpan.classList.add('portfolio-modal-navigation-active')
+
+      //in case others are active
+      commercialSpan.classList.remove('portfolio-modal-navigation-active')
+      institutionalSpan.classList.remove('portfolio-modal-navigation-active')
+    }
+    else if(this.state.type === 'Institutional') {
+      institutionalSpan.classList.add('portfolio-modal-navigation-active')
+
+      //in case others are active
+      residentialSpan.classList.remove('portfolio-modal-navigation-active')
+      commercialSpan.classList.remove('portfolio-modal-navigation-active')
+    }
   }
+
   closeModal = () => {
     this.setState({modalIsOpen: false});
   }
+
+  reloadProjects = (type) => {
+    axios.get(`/api/portfolio/${type}`).then( results => {
+      var portfolioProjects = results.data;
+      if(portfolioProjects !== 'No Images') {
+        this.setState({
+          portfolioProjects: portfolioProjects,
+          type: type
+        }, () => {
+          this.afterOpenModal()
+        });
+      }
+      else {
+        this.setState({
+          portfolioProjects: []
+        }, () => {
+          this.afterOpenModal()
+        });
+      }
+    })
+  }
+
   render() {
 
     return (
@@ -85,9 +132,18 @@ class Portfolio extends Component {
               >
 
             <div className="portfolio-modal-navigation">
-              <span ref={this.commercialSpan}>Commercial</span>
-              <span ref={this.residentialSpan}>Residential</span>
-              <span ref={this.institutionalSpan}>Institutional</span>
+              <button ref={this.commercialSpan}
+                      id="commercial-span"
+                      className='portfolio-modal-navigation-button'
+                      onClick={() => this.reloadProjects('Commercial')}>Commercial</button>
+              <button ref={this.residentialSpan}
+                      id="residential-span"
+                      className='portfolio-modal-navigation-button'
+                      onClick={() => this.reloadProjects('Residential')}>Residential</button>
+              <button ref={this.institutionalSpan}
+                      id="institutional-span"
+                      className='portfolio-modal-navigation-button'
+                      onClick={() => this.reloadProjects('Institutional')}>Institutional</button>
             </div>
             <div className="portfolio-modal-project-container">
               {this.state.portfolioProjects.map(portfolioProject => {
