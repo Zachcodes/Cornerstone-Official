@@ -56,3 +56,9 @@ CREATE TABLE ahj_contacts (
     position_id     integer REFERENCES positions (position_id),
     name            text
 );
+CREATE TABLE portfolio (
+    portfolio_id    serial PRIMARY KEY,
+    description     text,
+    type            text,
+    image_name      text
+);

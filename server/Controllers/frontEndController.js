@@ -37,7 +37,7 @@ module.exports = {
   },
 
   getImages(req, res, next) {
-
+    var db = app.get('db');
     var fs = require('fs');
     const type = req.params.type;
     var path = `./Images/${type}`;
@@ -49,13 +49,20 @@ module.exports = {
           onError(err);
           return;
         }
-        var imagePaths = [];
+        var images = [];
 
         filenames.forEach(function(filename) {
           var filePath = `/Images/${type}/${filename}`;
-          imagePaths.push(filePath);
+          db.get_portfolio_by_filename({filename, type}).then(result => {
+            result[0].imagePath = filePath;
+            //need to make this so that it makes one initial db call and
+            //then I just loop through results otherwise I'll run into async issues
+            console.log(result[0])
+            images.push(result[0])
+          })
         });
-        res.status(200).send(imagePaths);
+        console.log(images)
+        res.status(200).send(images);
       });
 
     }
