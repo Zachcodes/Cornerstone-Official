@@ -28,25 +28,41 @@ class Portfolio extends Component {
     super(props);
     this.state = {
       modalIsOpen: false,
-      modalType: ''
+      modalType: '',
+      portfolioProjects: [],
+      type: ''
     }
+    this.commercialSpan = React.createRef();
+    this.residentialSpan = React.createRef();
+    this.institutionalSpan = React.createRef();
   }
 
   openModal = (type) => {
     axios.get(`/api/portfolio/${type}`).then( results => {
-      console.log(results)
-      this.setState({
-        modalIsOpen: true
-      });
+      var portfolioProjects = results.data;
+      if(portfolioProjects !== 'No Images') {
+        this.setState({
+          modalIsOpen: true,
+          portfolioProjects: portfolioProjects,
+          type: type
+        });
+      }
+      else {
+        this.setState({
+          modalIsOpen: true,
+          portfolioProjects: []
+        });
+      }
     })
   }
   afterOpenModal = () => {
-    this.subtitle.style.color = '#f00';
+
   }
   closeModal = () => {
     this.setState({modalIsOpen: false});
   }
   render() {
+
     return (
         <div className="home-red-square">
           <div className="home-bottom-line"></div>
@@ -63,13 +79,22 @@ class Portfolio extends Component {
               isOpen={this.state.modalIsOpen}
               onAfterOpen={this.afterOpenModal}
               onRequestClose={this.closeModal}
-              style={modalStyles}
+              className='portfolio-modal-content'
+              overlayClassName="portfolio-modal-overlay"
               contentLabel="Example Modal"
               >
 
-            <h2 ref={subtitle => this.subtitle = subtitle}>Residential</h2>
-            <button onClick={this.closeModal}>close</button>
-            <CollapsedBuildingInfo></CollapsedBuildingInfo>
+            <div className="portfolio-modal-navigation">
+              <span ref={this.commercialSpan}>Commercial</span>
+              <span ref={this.residentialSpan}>Residential</span>
+              <span ref={this.institutionalSpan}>Institutional</span>
+            </div>
+            <div className="portfolio-modal-project-container">
+              {this.state.portfolioProjects.map(portfolioProject => {
+              return <CollapsedBuildingInfo portfolioProject={portfolioProject} key={portfolioProject.portfolio_id}></CollapsedBuildingInfo>
+            })}
+          </div>
+          <div className="portfolio-modal-close-div"><button onClick={this.closeModal}>close</button></div>
           </Modal>
           </div>
         </div>

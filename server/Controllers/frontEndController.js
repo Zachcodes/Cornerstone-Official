@@ -49,20 +49,18 @@ module.exports = {
           onError(err);
           return;
         }
-        var images = [];
 
-        filenames.forEach(function(filename) {
-          var filePath = `/Images/${type}/${filename}`;
-          db.get_portfolio_by_filename({filename, type}).then(result => {
-            result[0].imagePath = filePath;
-            //need to make this so that it makes one initial db call and
-            //then I just loop through results otherwise I'll run into async issues
-            console.log(result[0])
-            images.push(result[0])
+        db.get_portfolio_by_type({type}).then(portfolioProjects => {
+          portfolioProjects.forEach(portfolioProject => {
+            var filenamesIndex = filenames.indexOf(portfolioProject.image_name);
+            if(filenamesIndex >= 0) {
+              var filePath = `/Images/${type}/${filenames[filenamesIndex]}`;
+              portfolioProject.filePath = filePath;
+            }
           })
-        });
-        console.log(images)
-        res.status(200).send(images);
+          res.status(200).send(portfolioProjects);
+        })
+
       });
 
     }
