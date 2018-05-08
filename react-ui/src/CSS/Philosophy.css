@@ -1,0 +1,22 @@
+.philosophy-main-text-container {
+  display: flex;
+  box-sizing: border-box;
+  padding: 5px;
+  border: .5px solid black;
+  width: 300px;
+  position: absolute;
+  transform: rotate(18deg);
+}
+
+.philosophy-left-container {
+  top: 100px;
+  left: 50px;
+}
+
+.philosophy-right-container {
+
+}
+
+.philosophy-right-bottom-container {
+
+}
