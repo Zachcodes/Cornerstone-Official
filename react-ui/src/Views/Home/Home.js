@@ -12,6 +12,7 @@ class Home extends Component {
     return (
       <div className="home-red-square">
         <div className="home-bottom-line"></div>
+        <div className="home-middle-line"></div>
         <div className="home-left-line">
           <button className="home-navigation-button"><Link to="/philosophy" className="home-link">Philosophy</Link></button>
           <button className="home-navigation-button"><Link to="/portfolio" className="home-link">Portfolio</Link></button>

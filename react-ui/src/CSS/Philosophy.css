@@ -6,17 +6,24 @@
   width: 300px;
   position: absolute;
   transform: rotate(18deg);
+  background-color: #8080805c;
+  color: #00000061;
 }
-
+.philosophy-main-text-container:hover {
+  background-color: #808080;
+  color: black;
+}
 .philosophy-left-container {
-  top: 100px;
-  left: 50px;
+  top: -260px;
+  left: -340px;
 }
 
 .philosophy-right-container {
-
+  bottom: 230px;
+  left: 370px;
 }
 
 .philosophy-right-bottom-container {
-
+  top: 120px;
+  left: 190px;
 }
