@@ -51,6 +51,16 @@
   border: none;
   background-color: transparent;
 }
+.home-navigation-left-button {
+  position: absolute;
+  margin-bottom: 20px;
+  font-size: 20px;
+  transform: rotate(17deg);
+  border: none;
+  background-color: transparent;
+  right: 15px;
+}
 .home-link {
   text-decoration: none;
+  color: black;
 }

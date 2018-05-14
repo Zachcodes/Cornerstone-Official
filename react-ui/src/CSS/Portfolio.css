@@ -57,3 +57,15 @@
   height: 20%;
   width: auto;
 }
+.portfolio-commercial-button {
+  top: 140px;
+}
+.portfolio-residential-button {
+  top: 180px;
+}
+.portfolio-institutional-button {
+  top: 220px;
+}
+.portfolio-home-button {
+  top: 260px;
+}

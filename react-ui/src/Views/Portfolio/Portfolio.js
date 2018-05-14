@@ -118,11 +118,12 @@ class Portfolio extends Component {
             <button className="home-navigation-button"><Link to="/philosophy" className="home-link">Philosophy</Link></button>
             <button className="home-navigation-button"><Link to="/portfolio" className="home-link">Portfolio</Link></button>
             <button className="home-navigation-button"><Link to="/contact" className="home-link">Contact</Link></button>
+            <button className="home-navigation-left-button portfolio-commercial-button" onClick={() => { this.openModal('Commercial') }}>Commercial</button>
+            <button className="home-navigation-left-button portfolio-residential-button" onClick={() => { this.openModal('Residential') }}>Residential</button>
+            <button className="home-navigation-left-button portfolio-institutional-button" onClick={() => { this.openModal('Institutional') }}>Institutional</button>
+            <button className="home-navigation-left-button portfolio-home-button"><Link to="/" className="home-link">Home</Link></button>
           </div>
           <div>
-            <button onClick={() => { this.openModal('Commercial') }}>Commercial</button>
-            <button onClick={() => { this.openModal('Residential') }}>Residential</button>
-            <button onClick={() => { this.openModal('Institutional') }}>Institutional</button>
             <Modal
               isOpen={this.state.modalIsOpen}
               onAfterOpen={this.afterOpenModal}

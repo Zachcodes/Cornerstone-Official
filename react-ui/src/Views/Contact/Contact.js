@@ -121,6 +121,7 @@ class Contact extends Component {
           <button className="home-navigation-button"><Link to="/philosophy" className="home-link">Philosophy</Link></button>
           <button className="home-navigation-button"><Link to="/portfolio" className="home-link">Portfolio</Link></button>
           <button className="home-navigation-button"><Link to="/contact" className="home-link">Contact</Link></button>
+          <button className="home-navigation-left-button"><Link to="/" className="home-link">Home</Link></button>
         </div>
         <div className="contact-form-main">
           <div className="contact-form-row"><h2>Contact</h2></div>
