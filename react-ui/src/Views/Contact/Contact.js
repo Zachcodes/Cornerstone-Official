@@ -11,8 +11,12 @@ import 'rc-time-picker/assets/index.css';
 //Time picker
 import moment from 'moment';
 import TimePicker from 'rc-time-picker';
+//Components
+import NavigationItem from '../../Components/NavigationItem'
+
 const format = 'h:mm a';
 const now = moment().hour(0).minute(0);
+
 
 class Contact extends Component {
   constructor(props){
@@ -118,10 +122,34 @@ class Contact extends Component {
         <div className="home-bottom-line"></div>
         <div className="home-middle-line"></div>
         <div className="home-left-line">
-          <button className="home-navigation-button"><Link to="/philosophy" className="home-link">Philosophy</Link></button>
-          <button className="home-navigation-button"><Link to="/portfolio" className="home-link">Portfolio</Link></button>
-          <button className="home-navigation-button"><Link to="/contact" className="home-link">Contact</Link></button>
-          <button className="home-navigation-left-button"><Link to="/" className="home-link">Home</Link></button>
+            <NavigationItem
+              buttonClass="navigation-button"
+              linkTo="/philosophy"
+              linkClass="navigation-link"
+              navigationName="Philosophy"
+              active='false'>
+            </NavigationItem>
+            <NavigationItem
+              buttonClass="navigation-button"
+              linkTo="/portfolio"
+              linkClass="navigation-link"
+              navigationName="Portfolio"
+              active='false'>
+            </NavigationItem>
+            <NavigationItem
+              buttonClass="navigation-button"
+              linkTo="/contact"
+              linkClass="navigation-link"
+              navigationName="Contact"
+              active='true'>
+            </NavigationItem>
+            <NavigationItem
+              buttonClass="navigation-button"
+              linkTo="/"
+              linkClass="navigation-link"
+              navigationName="Home"
+              active='false'>
+            </NavigationItem>
         </div>
         <div className="contact-form-main">
           <div className="contact-form-row"><h2>Contact</h2></div>

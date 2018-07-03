@@ -44,10 +44,8 @@
   top: -540px;
 }
 .home-navigation-button {
-  margin-bottom: 20px;
-  margin-left: 5px;
-  font-size: 20px;
-  transform: rotate(17deg);
+  position: absolute;
+  right: 30px;
   border: none;
   background-color: transparent;
 }

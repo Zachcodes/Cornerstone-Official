@@ -11,6 +11,7 @@ import Modal from 'react-modal';
 
 //components
 import CollapsedBuildingInfo from '../../Components/CollapsedBuildingInfo';
+import NavigationItem from '../../Components/NavigationItem'
 
 const modalStyles = {
     content : {
@@ -109,15 +110,40 @@ class Portfolio extends Component {
   }
 
   render() {
-
+    console.log('this.props in portfolio', this.props)
     return (
         <div className="home-red-square">
           <div className="home-bottom-line"></div>
           <div className="home-middle-line"></div>
           <div className="home-left-line">
-            <button className="home-navigation-button"><Link to="/philosophy" className="home-link">Philosophy</Link></button>
-            <button className="home-navigation-button"><Link to="/portfolio" className="home-link">Portfolio</Link></button>
-            <button className="home-navigation-button"><Link to="/contact" className="home-link">Contact</Link></button>
+            <NavigationItem
+              buttonClass="navigation-button"
+              linkTo="/philosophy"
+              linkClass="navigation-link"
+              navigationName="Philosophy"
+              active='false'>
+            </NavigationItem>
+            <NavigationItem
+              buttonClass="navigation-button"
+              linkTo="/portfolio"
+              linkClass="navigation-link"
+              navigationName="Portfolio"
+              active='true'>
+            </NavigationItem>
+            <NavigationItem
+              buttonClass="navigation-button"
+              linkTo="/contact"
+              linkClass="navigation-link"
+              navigationName="Contact"
+              active='false'>
+            </NavigationItem>
+            <NavigationItem
+              buttonClass="navigation-button"
+              linkTo="/"
+              linkClass="navigation-link"
+              navigationName="Home"
+              active='false'>
+            </NavigationItem>
             <button className="home-navigation-left-button portfolio-commercial-button" onClick={() => { this.openModal('Commercial') }}>Commercial</button>
             <button className="home-navigation-left-button portfolio-residential-button" onClick={() => { this.openModal('Residential') }}>Residential</button>
             <button className="home-navigation-left-button portfolio-institutional-button" onClick={() => { this.openModal('Institutional') }}>Institutional</button>

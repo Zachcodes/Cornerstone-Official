@@ -1,3 +1,48 @@
 body {
   margin: 0;
 }
+
+.navigation-square {
+  height: 10px;
+  width: 10px;
+  background-color: black;
+  margin-bottom: 25px;
+}
+
+.navigation-square-active {
+  background-color: red;
+}
+
+.navigation-square:hover {
+  background-color: red;
+}
+
+.navigation-square-line {
+  width: 25px;
+  height: 10px;
+  border-bottom: 1px solid black;
+  position: absolute;
+  right: 5px;
+}
+
+.navigation-square-line-tilted {
+  width: 25px;
+  height: 10px;
+  border-bottom: 1px solid black;
+  position: absolute;
+  right: 23px;
+  transform: rotate(18deg);
+  top: -3px;
+}
+
+.navigation-button {
+  position: absolute;
+  right: 30px;
+  border: none;
+  background-color: transparent;
+}
+
+.navigation-link {
+  text-decoration: none;
+  color: black;
+}

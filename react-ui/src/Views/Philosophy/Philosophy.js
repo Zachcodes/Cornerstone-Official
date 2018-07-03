@@ -8,6 +8,7 @@ import '../../CSS/Philosophy.css';
 
 //Components
 import PhilosophyText from '../../Components/PhilosophyText';
+import NavigationItem from '../../Components/NavigationItem'
 
 class Philosophy extends Component {
   constructor(props){
@@ -41,10 +42,34 @@ class Philosophy extends Component {
         <div className="home-bottom-line"></div>
         <div className="home-middle-line"></div>
         <div className="home-left-line">
-          <button className="home-navigation-button"><Link to="/philosophy" className="home-link">Philosophy</Link></button>
-          <button className="home-navigation-button"><Link to="/portfolio" className="home-link">Portfolio</Link></button>
-          <button className="home-navigation-button"><Link to="/contact" className="home-link">Contact</Link></button>
-          <button className="home-navigation-left-button"><Link to="/" className="home-link">Home</Link></button>
+          <NavigationItem
+            buttonClass="navigation-button"
+            linkTo="/philosophy"
+            linkClass="navigation-link"
+            navigationName="Philosophy"
+            active='true'>
+          </NavigationItem>
+          <NavigationItem
+            buttonClass="navigation-button"
+            linkTo="/portfolio"
+            linkClass="navigation-link"
+            navigationName="Portfolio"
+            active='false'>
+          </NavigationItem>
+          <NavigationItem
+            buttonClass="navigation-button"
+            linkTo="/contact"
+            linkClass="navigation-link"
+            navigationName="Contact"
+            active='false'>
+          </NavigationItem>
+          <NavigationItem
+            buttonClass="navigation-button"
+            linkTo="/"
+            linkClass="navigation-link"
+            navigationName="Home"
+            active='false'>
+          </NavigationItem>
         </div>
       </div>
     );

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+
+//Components
+import NavigationItem from "../../Components/NavigationItem"
 //CSS
 import '../../CSS/Home.css';
 
@@ -14,9 +17,24 @@ class Home extends Component {
         <div className="home-bottom-line"></div>
         <div className="home-middle-line"></div>
         <div className="home-left-line">
-          <button className="home-navigation-button"><Link to="/philosophy" className="home-link">Philosophy</Link></button>
-          <button className="home-navigation-button"><Link to="/portfolio" className="home-link">Portfolio</Link></button>
-          <button className="home-navigation-button"><Link to="/contact" className="home-link">Contact</Link></button>
+          <NavigationItem
+            buttonClass="navigation-button"
+            linkTo="/philosophy"
+            linkClass="navigation-link"
+            navigationName="Philosophy">
+          </NavigationItem>
+          <NavigationItem
+            buttonClass="navigation-button"
+            linkTo="/portfolio"
+            linkClass="navigation-link"
+            navigationName="Portfolio">
+          </NavigationItem>
+          <NavigationItem
+            buttonClass="navigation-button"
+            linkTo="/contact"
+            linkClass="navigation-link"
+            navigationName="Contact">
+          </NavigationItem>
         </div>
       </div>
     );
