@@ -17,28 +17,8 @@ class Philosophy extends Component {
 
   render() {
     return (
+      <div>
       <div className="home-red-square">
-        <PhilosophyText
-          positionClass="philosophy-left-container"
-          innerText="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-          doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
-          et quasi architecto beatae vitae dicta sunt explicabo."
-          >
-        </PhilosophyText>
-        <PhilosophyText
-          positionClass="philosophy-right-container"
-          innerText="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-          doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
-          et quasi architecto beatae vitae dicta sunt explicabo."
-          >
-        </PhilosophyText>
-        <PhilosophyText
-          positionClass="philosophy-right-bottom-container"
-          innerText="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-          doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
-          et quasi architecto beatae vitae dicta sunt explicabo."
-          >
-        </PhilosophyText>
         <div className="home-bottom-line"></div>
         <div className="home-middle-line"></div>
         <div className="home-left-line">
@@ -72,6 +52,28 @@ class Philosophy extends Component {
           </NavigationItem>
         </div>
       </div>
+      <PhilosophyText
+        positionClass="philosophy-left-container"
+        innerText="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
+        et quasi architecto beatae vitae dicta sunt explicabo."
+        >
+      </PhilosophyText>
+      <PhilosophyText
+        positionClass="philosophy-right-container"
+        innerText="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
+        et quasi architecto beatae vitae dicta sunt explicabo."
+        >
+      </PhilosophyText>
+      <PhilosophyText
+        positionClass="philosophy-right-bottom-container"
+        innerText="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
+        et quasi architecto beatae vitae dicta sunt explicabo."
+        >
+      </PhilosophyText>
+    </div>
     );
   }
 }

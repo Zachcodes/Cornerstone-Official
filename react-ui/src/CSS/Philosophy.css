@@ -5,7 +5,6 @@
   border: .5px solid black;
   width: 300px;
   position: absolute;
-  transform: rotate(18deg);
   background-color: #8080805c;
   color: #00000061;
 }
@@ -14,16 +13,16 @@
   color: black;
 }
 .philosophy-left-container {
-  top: -260px;
-  left: -340px;
+  top: 15%;
+  left: 60%;
 }
 
 .philosophy-right-container {
-  bottom: 230px;
-  left: 370px;
+  top: 12%;
+  left: 30%;
 }
 
 .philosophy-right-bottom-container {
-  top: 120px;
-  left: 190px;
+  top: 30%;
+  left: 45%;
 }

@@ -4,30 +4,50 @@
   background-color: white;
   position: absolute;
   transform: rotate(18deg);
-  top: -200px;
-  left: 700px;
-  border: 1px solid black;
+  top: -440px;
+  left: 600px;
   display: flex;
   flex-direction: column;
 }
 .contact-form-row {
-
+  margin-bottom: 20px;
+  display: flex;
 }
+.contact-form-header {
+  justify-content: center;
+}
+
 .contact-form-hidden-element {
   display: none;
 }
 .contact-form-visible-element {
   display: inline-block;
 }
-.contact-left-container {
+.contact-information-container {
   width: 200px;
   display: flex;
   flex-direction: column;
-  transform: rotate(17deg);
   position: absolute;
-  bottom: 100px;
-  right: 250px;
+  right: 390px;
+  top: 50px;
 }
 .contact-left-row {
   height: 30%;
+}
+.contact-form-label {
+  width: 80px;
+  margin-left: 30px;
+}
+.contact-form-submit {
+  justify-content: center;
+}
+.contact-form-submit-button {
+  background-color: #4cc34c;
+  color: white;
+  border: none;
+  width: 130px;
+  height: 40px;
+}
+.contact-form-submit-button:hover {
+  cursor: pointer;
 }

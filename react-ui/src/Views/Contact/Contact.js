@@ -114,11 +114,6 @@ class Contact extends Component {
     var { name, email, subject, message, requestCallback, phone, timeToCall} = this.state;
     return (
       <div className="home-red-square">
-        <div className="contact-left-container">
-          <div className="contact-left-row"><p>Address: some address</p></div>
-          <div className="contact-left-row"><p>Phone: some phone</p></div>
-          <div className="contact-left-row"><p>Email: some email</p></div>
-        </div>
         <div className="home-bottom-line"></div>
         <div className="home-middle-line"></div>
         <div className="home-left-line">
@@ -152,23 +147,40 @@ class Contact extends Component {
             </NavigationItem>
         </div>
         <div className="contact-form-main">
-          <div className="contact-form-row"><h2>Contact</h2></div>
-          <div className="contact-form-row">Name:<input type="text" value={name} onChange={(e) => this.handleNameChange(e.target.value)}></input></div>
-          <div className="contact-form-row">Email: <input type="text" value={email} onChange={(e) => this.handleEmailChange(e.target.value)}></input></div>
-          <div className="contact-form-row">Subject: <input type="text" value={subject} onChange={(e) => this.handleSubjectChange(e.target.value)}></input></div>
-          <div className="contact-form-row">Message: <input type='text' value={message} onChange={(e) => this.handleMessageChange(e.target.value)}></input></div>
-          <div className="contact-form-row">
-            Request callback: <input type="checkbox" value={requestCallback} onChange={this.handleRequestChange}></input>
-          <p className="contact-form-hidden-element" ref={this.p1}>Phone:</p> <input type="text" value={phone} onChange={(e) => this.handlePhoneChange(e.target.value)} className="contact-form-hidden-element" ref={this.input1}></input>
-        <div ref={this.p2} className="contact-form-hidden-element"><p>Best Time To Call:</p>   <TimePicker
-                                showSecond={false}
-                                defaultValue={now}
-                                onChange={this.handleTimeChange}
-                                format={format}
-                                use12Hours
-                              /></div>
+          <div className="contact-information-container">
+            <div className="contact-left-row"><p>Address: some address</p></div>
+            <div className="contact-left-row"><p>Phone: some phone</p></div>
+            <div className="contact-left-row"><p>Email: some email</p></div>
           </div>
-          <div className="contact-form-row"><button onClick={this.submitContactFormMessage}>Submit</button></div>
+          <div className="contact-form-row contact-form-header"><h2>Contact</h2></div>
+          <div className="contact-form-row">
+            <span className="contact-form-label">Name:</span><input type="text" value={name} onChange={(e) => this.handleNameChange(e.target.value)}></input>
+          </div>
+          <div className="contact-form-row">
+            <span className="contact-form-label">Email:</span> <input type="text" value={email} onChange={(e) => this.handleEmailChange(e.target.value)}></input>
+          </div>
+          <div className="contact-form-row">
+            <span className="contact-form-label">Subject:</span> <input type="text" value={subject} onChange={(e) => this.handleSubjectChange(e.target.value)}></input>
+          </div>
+          <div className="contact-form-row">
+            <span className="contact-form-label">Message:</span> <input type='text' value={message} onChange={(e) => this.handleMessageChange(e.target.value)}></input>
+          </div>
+          <div className="contact-form-row">
+            <span className="contact-form-label">Request callback:</span> <input type="checkbox" value={requestCallback} onChange={this.handleRequestChange}></input>
+          </div>
+          <div className="contact-form-row">
+            <p className="contact-form-hidden-element" ref={this.p1}>Phone:</p> <input type="text" value={phone} onChange={(e) => this.handlePhoneChange(e.target.value)} className="contact-form-hidden-element" ref={this.input1}></input>
+          <div ref={this.p2} className="contact-form-hidden-element"><p>Best Time To Call:</p>   <TimePicker
+                                  showSecond={false}
+                                  defaultValue={now}
+                                  onChange={this.handleTimeChange}
+                                  format={format}
+                                  use12Hours
+                                /></div>
+          </div>
+          <div className="contact-form-row contact-form-submit">
+            <button onClick={this.submitContactFormMessage} className="contact-form-submit-button">Submit</button>
+          </div>
         </div>
       </div>
     );
