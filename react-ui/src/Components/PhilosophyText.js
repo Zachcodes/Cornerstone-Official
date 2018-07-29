@@ -1,19 +1,17 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 
-class PhilosophyText extends Component {
-  constructor(props){
-    super(props);
-  }
+export default function PhilosophyText(props) {
 
-  render() {
-    var fullClassName = `philosophy-main-text-container ${this.props.positionClass}`;
+    var fullClassName = `philosophy-main-text-container ${props.positionClass}`;
     return (
       <div className={fullClassName}>
-        <div>{this.props.innerText}</div>
+        <div className="philosophy-text-square"></div>
+        <div className="philosophy-text-line"></div>
+        <div className="philosophy-text-text">
+          {props.children}
+        </div>
       </div>
     )
-  }
-}
 
-export default PhilosophyText;
+}

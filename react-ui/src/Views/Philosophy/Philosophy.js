@@ -54,24 +54,24 @@ class Philosophy extends Component {
       </div>
       <PhilosophyText
         positionClass="philosophy-left-container"
-        innerText="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
-        et quasi architecto beatae vitae dicta sunt explicabo."
         >
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
+        et quasi architecto beatae vitae dicta sunt explicabo.
       </PhilosophyText>
       <PhilosophyText
         positionClass="philosophy-right-container"
-        innerText="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
-        et quasi architecto beatae vitae dicta sunt explicabo."
         >
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
+        et quasi architecto beatae vitae dicta sunt explicabo.
       </PhilosophyText>
       <PhilosophyText
         positionClass="philosophy-right-bottom-container"
-        innerText="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
-        et quasi architecto beatae vitae dicta sunt explicabo."
         >
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis
+        et quasi architecto beatae vitae dicta sunt explicabo.
       </PhilosophyText>
     </div>
     );

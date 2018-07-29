@@ -1,26 +1,28 @@
 import React, {Component} from 'react';
 import '../CSS/Navbar.css';
 
+import {Link} from 'react-router-dom'
+
+//images
+import logo from '../Images/placeholder.png'
+
 class Navbar extends Component {
   constructor(props){
     super(props);
   }
 
   render() {
-
+    const navbarLogo = {
+      background: `url(${logo})`,
+      backgroundSize: 'cover',
+      height: '100%',
+      width: '200px'
+    }
     return (
       <div className="navbar-main">
-        <div className="navbar-name-container">
-          <div><b>Cornerstone Design</b> <i>Group</i></div>
-          <div className="navbar-bottom-container">
-            <span className="navbar-cdg">CDG</span>
-            <span className="navbar-description-container">
-              <span>architecture</span>
-              <span>development</span>
-              <span>planning</span>
-            </span>
-          </div>
-        </div>
+        <Link to="/"><div style={navbarLogo}>
+
+        </div></Link>
       </div>
     )
   }
