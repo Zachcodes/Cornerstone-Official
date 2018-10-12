@@ -8,7 +8,7 @@
   justify-content: flex-start;
 }
 .philosophy-main-text-container:hover {
-  background-color: #808080;
+  background-color: #8080801a;
   color: black;
 }
 .philosophy-left-container {
@@ -28,8 +28,8 @@
 
 .philosophy-text-square {
   width: 5%;
-  background-color: red;
-  height: 10px;
+  background-color: black;
+  height: 5px;
 }
 
 .philosophy-text-line {

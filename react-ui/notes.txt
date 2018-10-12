@@ -1,0 +1,18 @@
+7/29/18 
+
+Philosophy page 
+
+Add same color light grey background on hover of text elements nav 
+
+Contact page 
+
+add red box black line to side of kendall information 
+Leave contact as is 
+
+Portfolio 
+
+Implement changes shown on the drawing
+add thumbnails up along top 
+clicking thumbnail opens modal of specific project with some text and the picture 
+while modal is open, all the thumbnails for that picture are displayed along the bottom 
+make background behind modal grey

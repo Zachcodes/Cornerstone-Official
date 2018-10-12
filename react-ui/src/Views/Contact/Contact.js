@@ -148,9 +148,13 @@ class Contact extends Component {
         </div>
         <div className="contact-form-main">
           <div className="contact-information-container">
-            <div className="contact-left-row"><p>Address: some address</p></div>
-            <div className="contact-left-row"><p>Phone: some phone</p></div>
-            <div className="contact-left-row"><p>Email: some email</p></div>
+            <div className="contact-information-red-box"></div>
+            <div className="contact-information-black-line"></div>
+            <div className="contact-information-info">
+              <div className="contact-left-row"><p>Address: some address</p></div>
+              <div className="contact-left-row"><p>Phone: some phone</p></div>
+              <div className="contact-left-row"><p>Email: some email</p></div>
+            </div>
           </div>
           <div className="contact-form-row contact-form-header"><h2>Contact</h2></div>
           <div className="contact-form-row">
